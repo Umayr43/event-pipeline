@@ -16,15 +16,15 @@ resource "random_id" "bucket_suffix" {
 }
 
 resource "aws_s3_bucket" "input_bucket" {
-  bucket = "${var.project_name}-input-bucket-${random_id.bucket_suffix.id}"
+  bucket = "${var.project_name}-input-bucket-${random_id.bucket_suffix.hex}"
 }
 
 resource "aws_s3_bucket" "processed_bucket" {
-  bucket = "${var.project_name}-processed-bucket-${random_id.bucket_suffix.id}"
+  bucket = "${var.project_name}-processed-bucket-${random_id.bucket_suffix.hex}"
 }
 
 resource "aws_s3_bucket" "report_bucket" {
-  bucket = "${var.project_name}-report-bucket-${random_id.bucket_suffix.id}"
+  bucket = "${var.project_name}-report-bucket-${random_id.bucket_suffix.hex}"
 }
 
 resource "aws_iam_role" "lambda_role" {
