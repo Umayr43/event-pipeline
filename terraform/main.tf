@@ -119,7 +119,7 @@ resource "aws_s3_bucket_notification" "input_notification" {
 
     lambda_function {
       lambda_function_arn = aws_lambda_function.data_processor.arn
-      events=["s3ObjectCreated:*"]
+      events=["s3:ObjectCreated:*"]
       filter_suffix = ".csv"
     }
     depends_on = [aws_lambda_permission.allow_s3]
