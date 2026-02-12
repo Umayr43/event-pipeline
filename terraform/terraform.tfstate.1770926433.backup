@@ -1,0 +1,46 @@
+{
+  "version": 4,
+  "terraform_version": "1.14.4",
+  "serial": 137,
+  "lineage": "186dc3c2-3de2-1a6f-d117-a37e38a5a982",
+  "outputs": {},
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "aws_cloudwatch_event_rule",
+      "name": "daily_report",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:events:us-east-1:089615628832:rule/event-pipeline-daily",
+            "description": "trigger daily post",
+            "event_bus_name": "default",
+            "event_pattern": null,
+            "force_destroy": false,
+            "id": "event-pipeline-daily",
+            "is_enabled": true,
+            "name": "event-pipeline-daily",
+            "name_prefix": "",
+            "region": "us-east-1",
+            "role_arn": "",
+            "schedule_expression": "cron(0 8 * * ? *)",
+            "state": "ENABLED",
+            "tags": {},
+            "tags_all": {}
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "089615628832",
+            "name": "event-pipeline-daily",
+            "region": "us-east-1"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}

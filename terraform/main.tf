@@ -5,6 +5,14 @@ terraform {
       version = "6.31.0"
     }
   }
+  backend "s3" {
+    bucket = "event-pipeline-terraform-state"
+    key    = "event-pipeline/terraform.tfstate"
+    region = var.aws_region
+    dynamodb_table = "terraform-locks"
+    encrypt = true
+    
+  }
 }
 
 provider "aws" {
