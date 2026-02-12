@@ -8,7 +8,7 @@ terraform {
   backend "s3" {
     bucket = "event-pipeline-terraform-state"
     key    = "event-pipeline/terraform.tfstate"
-    region = var.aws_region
+    region = "us-east-1"
     dynamodb_table = "terraform-locks"
     encrypt = true
     
