@@ -1,0 +1,61 @@
+name: Deploy Pipeline
+
+on:
+    push: 
+        branches: [main]
+    workflow_dispatch:
+
+env:
+    AWS_REGION: us-east-1
+
+jobs:
+    deploy: 
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Configure AWS credentials
+              uses: actions/configure-aws-credentials@v2
+              with: 
+                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }} 
+                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} 
+                  aws-region: ${{ env.AWS_REGION }} 
+
+            - name: Setup Python
+              uses: actions/setup-python@v4
+              with: 
+                  python-version: '3.11'
+
+            - name: Package Lambda data_processor
+              run: |
+                  cd lambda/data_processor
+                  pip install -r requirements.txt -t .
+                  zip -r ../data_processor.zip .
+
+            - name: Package Lambda report_generator
+              run: |
+                  cd lambda/report_generator
+                  pip install -r requirements.txt -t .
+                  zip -r ../report_generator.zip .
+                
+            - name: Setup terraform
+              uses: hashicorp/setup-terraform@v2
+              with: 
+                  terraform_version: 1.6.0
+
+            - name: terrafrom init
+              run: |
+                  cd terraform
+                  terraform init
+
+            - name: terraform plan
+              run: |
+                  cd terraform 
+                  terraform plan
+                
+                
+            - name: terraform apply
+              run: |
+                  cd terraform 
+                  terraform apply -auto-approve
