@@ -92,6 +92,7 @@ resource "aws_lambda_function" "data_processor" {
     handler = "lambda_function.lambda_handler"
     runtime = "python3.11"
     timeout = 60
+    depends_on = [ aws_iam_role_policy.lambda_policy ]
 
   environment {
     variables = {
@@ -133,6 +134,7 @@ resource "aws_lambda_function" "report_generator" {
   handler       = "lambda_function.lambda_handler"
   runtime       = "python3.11"
   timeout       = 300
+  depends_on = [ aws_iam_role_policy.lambda_policy ]
 
   environment {
     variables = {
