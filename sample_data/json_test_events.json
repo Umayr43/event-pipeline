@@ -1,0 +1,16 @@
+[
+  {
+    "event_type": "purchase",
+    "user_id": "user006",
+    "action": "buy",
+    "amount": 75.00,
+    "product_id": "prod999",
+    "timestamp": "2024-02-10T13:00:00Z"
+  },
+  {
+    "event_type": "signup",
+    "user_id": "user007",
+    "action": "register",
+    "timestamp": "2024-02-10T14:30:00Z"
+  }
+]

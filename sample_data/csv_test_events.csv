@@ -1,0 +1,6 @@
+event_type,user_id,action,amount,product_id,timestamp
+purchase,user001,buy,99.99,prod123,2024-02-10T08:30:00Z
+view,user002,browse,,prod456,2024-02-10T09:15:00Z
+purchase,user003,buy,49.50,prod789,2024-02-10T10:00:00Z
+signup,user004,register,,,2024-02-10T11:20:00Z
+view,user005,browse,,prod123,2024-02-10T12:45:00Z
