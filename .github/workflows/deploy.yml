@@ -60,3 +60,9 @@ jobs:
               run: |
                   cd terraform 
                   terraform apply -auto-approve
+
+            - name: Show Terraform Outputs
+              run: |
+                  cd terraform
+                  terraform output
+
