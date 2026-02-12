@@ -137,7 +137,7 @@ resource "aws_lambda_function" "report_generator" {
   environment {
     variables = {
         PROCESSED_BUCKET=aws_s3_bucket.processed_bucket.id
-        REPORTS_BUCKET=aws_s3_bucket.report_bucket.id
+        REPORT_BUCKET=aws_s3_bucket.report_bucket.id
         SNS_TOPIC_ARN=aws_sns_topic.notifications.arn
     }
   }
@@ -171,13 +171,4 @@ resource "aws_lambda_permission" "allow_eventbridge" {
   function_name = aws_lambda_function.report_generator.function_name
   principal     = "events.amazonaws.com"
   source_arn    = aws_cloudwatch_event_rule.daily_report.arn
-}
-output "input_bucket" {
-    value = aws_s3_bucket.input_bucket.id
-}
-output "processed_bucket" {
-    value = aws_s3_bucket.processed_bucket.id
-}
-output "report_bucket" {
-    value = aws_s3_bucket.report_bucket.id
 }
