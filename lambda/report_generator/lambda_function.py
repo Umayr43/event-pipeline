@@ -100,7 +100,7 @@ def lambda_handler(event, context):
             Bucket=report_bucket, 
             Key=report_key, 
             Body=json.dumps(summary, indent=2).encode('utf-8'),
-            Content_type='application/json'
+            ContentType='application/json'
             ) 
         print(f"Report saved to s3://{report_bucket}/{report_key}")
         
