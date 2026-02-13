@@ -14,7 +14,7 @@ def lambda_handler(event, context):
 
     try: 
         yesterday = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')#calculate the date for yesterday and format it as a string in the format YYYY-MM-DD to filter processed files by date
-        prefix = f"processed_data/{yesterday}/"
+        prefix = f"processed-data/{yesterday}/"
 
         print(f"Generating report for {yesterday}")
         
