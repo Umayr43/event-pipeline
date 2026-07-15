@@ -26,3 +26,5 @@ lambda/**/*.dist-info/
 .DS_Store
 Thumbs.db
 
+#images
+.jpg
